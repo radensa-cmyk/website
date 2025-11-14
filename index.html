@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    footer {
+      background: #f7f7f7;
+      padding: 60px 0 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .footer__container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 60px;
+    }
+
+    .footer__col {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer__col .logo {
+      font-size: 26px;
+      font-weight: 700;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .footer__col p {
+      margin: 15px 0;
+      line-height: 1.6;
+      color: #555;
+      max-width: 310px;
+    }
+
+    .footer__socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .footer__socials a {
+      font-size: 18px;
+      color: #444;
+      width: 38px;
+      height: 38px;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    .footer__socials a:hover {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
+
+    .footer__col h4 {
+      margin-bottom: 18px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .footer__links {
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer__links li {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+
+    .footer__links a {
+      text-decoration: none;
+      color: #555;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .footer__links a:hover {
+      color: #111;
+    }
+
+    .footer__col form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 260px;
+    }
+
+    .footer__col input {
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .footer__col .btn {
+      padding: 10px;
+      border: none;
+      background: #007bff;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    .footer__col .btn:hover {
+      background: #005dd8;
+    }
+
+    .footer__bar {
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 45px;
+      border-top: 1px solid #ddd;
+      color: #555;
+      font-size: 13px;
+    }
+
+
+    /* RESPONSIVE */
+    @media (max-width: 950px) {
+      .footer__container {
+        flex-wrap: wrap;
+        gap: 40px;
+      }
+
+      .footer__col {
+        flex: 1 1 45%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer__container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer__col form {
+        margin: auto;
+      }
+
+      .footer__socials {
+        justify-content: center;
+      }
+    }
+
+    .footer__socials {
+      list-style: none;
+
+      padding: 0;
+      margin: 25px 0 0;
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer__socials li {
+      list-style: none;
+
+      margin: 0;
+      padding: 0;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+
+  <footer id="contact">
+    <div class="section__container footer__container">
+      <div class="footer__col">
+        <div class="footer__logo">
+          <a href="#" class="logo">AEROMUSA</a>
+        </div>
+        <p>
+          Jelajahi dunia dengan mudah dan seru melalui platform perjalanan kami yang komprehensif.
+          Perjalanan Anda dimulai di sini, tempat perencanaan yang lancar
+          berpadu dengan pengalaman tak terlupakan.
+        </p>
+        <ul class="footer__socials">
+          <li>
+            <a href="#"><i class="ri-facebook-fill"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="ri-instagram-line"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="ri-youtube-line"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <ul class="footer__links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Flights</a></li>
+          <li><a href="#">Hotels</a></li>
+          <li><a href="#">Cruise</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contact Kami</h4>
+        <ul class="footer__links">
+          <li>
+            <a href="#">
+              <span><i class="ri-phone-fill"></i></span> +62 82112012542
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span><i class="ri-record-mail-line"></i></span> info@Aeromusa
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span><i class="ri-map-pin-2-fill"></i></span> Jakarta, In
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Subscribe</h4>
+        <form action="/">
+          <input type="text" placeholder="Enter your email" />
+          <button class="btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bar">
+      Copyright © 2025 CEO Aeromusa. Hak cipta dilindungi undang-undang.
+    </div>
+  </footer>
+
+
+  <section class="section__container journey__container" id="tour">
+    <h2 class="section__header">Perjalanan ke Langit Jadi Mudah!</h2>
+    <p class="section__description">
+      Perencanaan Mudah untuk Petualangan Anda Berikutnya
+    </p>
+    <div class="journey__grid">
+      <div class="journey__card">
+        <div class="journey__card__bg">
+          <span><i class="ri-bookmark-3-line"></i></span>
+          <h4>Proses Pemesanan yang Lancar</h4>
+        </div>
+        <div class="journey__card__content">
+          <span><i class="ri-bookmark-3-line"></i></span>
+          <h4>Reservasi Mudah, Hanya Sekali Klik</h4>
+          <p>
+            Dari penerbangan dan akomodasi hingga aktivitas dan transportasi,
+            semua yang Anda butuhkan tersedia di ujung jari Anda, membuat perencanaan perjalanan
+            mu menjadi mudah.
+          </p>
+        </div>
+      </div>
+      <div class="journey__card">
+        <div class="journey__card__bg">
+          <span><i class="ri-landscape-fill"></i></span>
+          <h4>Rencana Perjalanan yang Sesuai</h4>
+        </div>
+        <div class="journey__card__content">
+          <span><i class="ri-landscape-fill"></i></span>
+          <h4>Paket yang Disesuaikan Hanya untuk Anda</h4>
+          <p>
+            Nikmati rencana perjalanan personal yang dirancang sesuai preferensi dan minat Anda. Baik Anda
+            mencari petualangan atau pengalaman budaya,
+            rencana perjalanan kami yang dirancang khusus memastikan perjalanan Anda menjadi pengalaman
+            unik.
+          </p>
+        </div>
+      </div>
+      <div class="journey__card">
+        <div class="journey__card__bg">
+          <span><i class="ri-map-2-line"></i></span>
+          <h4>Wawasan Lokal Ahli</h4>
+        </div>
+        <div class="journey__card__content">
+          <span><i class="ri-map-2-line"></i></span>
+          <h4>Tips dan Rekomendasi Orang Dalam</h4>
+          <p>
+            Kami menyediakan rekomendasi pilihan untuk bersantap, bertamasya, dan tempat-tempat tersembunyi,
+            sehingga Anda dapat menikmati setiap destinasi seperti penduduk lokal.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
