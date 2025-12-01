@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Buku Tamu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-image: url("https://i.pinimg.com/736x/31/d8/43/31d8433b4a514d821cddaf3e908fcc87.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 40px;
+            backdrop-filter: blur(4px);
+        }
+
+        .logo {
+            width: 60px;
+            /* kecil */
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+            /* biar tetap center */
+        }
+
+
+        /* Container Glass Effect */
+        .glass-box {
+            max-width: 480px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 18px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        label {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            margin-bottom: 18px;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background: #0ea5e9;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            background: #38bdf8;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid rgba(255, 255, 255, 0.4);
+            margin: 40px auto;
+            width: 80%;
+        }
+
+        .pesan-card {
+            max-width: 500px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.18);
+            padding: 20px;
+            border-radius: 14px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+            color: white;
+        }
+
+        .pesan-card h3 {
+            margin-bottom: 10px;
+        }
+
+
+
+
+
+        .back-btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 35px;
+        }
+
+        .back-btn {
+            padding: 0.1em 0.25em;
+            width: 13em;
+            height: 4.2em;
+            background-color: #212121;
+            border: 0.08em solid #fff;
+            border-radius: 0.3em;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .back-btn span {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 0.4em;
+            width: 8.25em;
+            height: 2.5em;
+            background-color: #212121;
+            border-radius: 0.2em;
+            font-size: 1.5em;
+            color: #fff;
+            border: 0.08em solid #fff;
+            box-shadow: 0 0.4em 0.1em 0.019em #fff;
+        }
+
+        .back-btn span:hover {
+            transition: all 0.5s;
+            transform: translate(0, 0.4em);
+            box-shadow: 0 0 0 0 #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+    <img src="{{ url_for('static', filename='img/musa.png') }}" alt="Logo" class="logo">
+
+
+    <div class="glass-box">
+        <form action="/bukutamu" method="POST">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="pesan">Pesan:</label>
+            <textarea id="pesan" name="pesan" required></textarea>
+
+            <button type="submit">Kirim</button>
+        </form>
+    </div>
+
+    <hr>
+
+    {% if nama_terbaru and pesan_terbaru %}
+    <div class="pesan-card">
+        <h3>Pesan Terbaru:</h3>
+        <p>"{{ pesan_terbaru }}" — <em>{{ nama_terbaru }}</em></p>
+    </div>
+    {% endif %}
+
+    
+    <div class="back-btn-container">
+        <a href="/portfolio" style="text-decoration:none;">
+            <button class="back-btn">
+                <span>Kembali</span>
+            </button>
+        </a>
+    </div>
+
+    <script src="{{ url_for('static', filename='java sc/main.js') }}"></script>
+
+</body>
+
+</html>
+
+
+<!-- app route -->
+
+<!-- semua_pesan = []
+
+@app.route('/', methods=['GET'])
+def home():
+    
+    return redirect(url_for('bukutamu'))
+
+@app.route('/bukutamu', methods=['GET', 'POST'])
+def bukutamu():
+    global semua_pesan
+
+    if request.method == 'POST':
+       
+        nama = request.form.get('nama', '').strip()
+        pesan = request.form.get('pesan', '').strip()
+
+        if nama and pesan:
+            
+            semua_pesan.insert(0, {'nama': nama, 'pesan': pesan})
+        
+        
+            return redirect(url_for('bukutamu'))
+        else:
+          
+            error = "Nama dan Pesan wajib diisi."
+            return render_template('bukutamu.html', semua_pesan=semua_pesan, error_backend=error)
+
+    
+    return render_template('bukutamu.html', semua_pesan=semua_pesan) -->
